@@ -3,7 +3,7 @@ import NoteList from './NoteList';
 import Header from './Header';
 import SearchButton from './SearchButton';
 import Footer from './Footer';
-import NoteDetailWrapper from './NoteDetailWrapper';
+import NoteDetailWrapper from '../pages/NoteDetailPage';
 import { Routes, Route } from 'react-router-dom';
 import {
   getAllNotes,

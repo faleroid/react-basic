@@ -53,6 +53,10 @@ header h1 {
   flex: 1;
 }
 
+h2 {
+  margin-top: 32px;
+}
+
 header .navigation ul li {
   display: inline-block;
   font-size: 24px;
@@ -60,6 +64,7 @@ header .navigation ul li {
 }
 
 main {
+  min-height: 100vh;
   margin: 0 auto;
   padding: 32px 0;
   width: 90%;
@@ -83,6 +88,7 @@ main {
   text-align: center;
   color: var(--on-background-grey);
 }
+
 .note-item {
   padding: 16px;
   border-radius: 8px;
@@ -111,7 +117,7 @@ main {
 
 .detail-page {
   margin: 0 auto;
-  margin-top: 32px; 
+  margin-top: 32px;
   width: 90%;
 }
 
@@ -131,11 +137,13 @@ main {
   font-size: 18px;
 }
 
-.detail-page__action, .homepage__action, .add-new-page__action {
+.detail-page__action,
+.homepage__action,
+.add-new-page__action {
   position: fixed;
-  display: flex;
   gap: 16px;
-  bottom: 32px;
+  display: flex;
+  bottom: 80px;
   right: 32px;
 }
 
@@ -204,7 +212,8 @@ main {
   color: var(--on-background-grey);
 }
 
-.toggle-theme, .toggle-locale {
+.toggle-theme,
+.toggle-locale {
   background-color: transparent;
   border: 0;
   cursor: pointer;
@@ -222,16 +231,19 @@ main {
   font-size: 28px;
 }
 
-.input-login, .input-register {
+.input-login,
+.input-register {
   margin: 32px 0;
 }
 
-.input-login label, .input-register label {
+.input-login label,
+.input-register label {
   font-size: 24px;
   font-weight: lighter;
 }
 
-.input-login input, .input-register input {
+.input-login input,
+.input-register input {
   font-size: 18px;
   font-family: 'Inter', sans-serif;
   margin-top: 8px;
@@ -245,7 +257,8 @@ main {
   color: var(--on-background)
 }
 
-.input-login button, .input-register button {
+.input-login button,
+.input-register button {
   font-family: 'Inter', sans-serif;
   font-weight: bold;
   font-size: 24px;
@@ -269,12 +282,20 @@ main {
   color: var(--on-background);
 }
 
+footer {
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+  border-top: 1px solid var(--on-background);
+}
+
 @media screen and (min-width: 650px) {
   .notes-list {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .detail-page__title { 
+  .detail-page__title {
     font-size: 64px;
   }
 }

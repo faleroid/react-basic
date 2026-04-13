@@ -1,7 +1,6 @@
 function SearchButton({ searchKeyword, onSearchHandler }) {
     return (
         <div className="search-bar">
-            <h2>Catatan Aktif</h2>
             <input
                 type="text"
                 placeholder="Cari catatan..."
