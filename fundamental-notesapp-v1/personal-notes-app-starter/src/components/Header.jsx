@@ -7,7 +7,7 @@ function Header({ showActiveNotes, showArchivedNotes }) {
             <div className="navigation">
                 <ul>
                     <li><Link to="/" onClick={showActiveNotes}>Catatan Aktif</Link></li>
-                    <li><Link to="/" onClick={showArchivedNotes}>Catatan Arsip</Link></li>
+                    <li><Link to="/archived" onClick={showArchivedNotes}>Catatan Arsip</Link></li>
                 </ul>
             </div>
         </header>

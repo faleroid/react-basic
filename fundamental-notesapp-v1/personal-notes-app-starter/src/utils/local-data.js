@@ -68,6 +68,10 @@ function addNote({ title, body }) {
   }];
 }
 
+function searchNotes(keyword) {
+  return notes.filter((note) => note.title.toLowerCase().includes(keyword.toLowerCase()));
+}
+
 function deleteNote(id) {
   notes = notes.filter((note) => note.id !== id);
 }
@@ -111,6 +115,7 @@ export {
   deleteNote,
   editNote,
   getNote,
+  searchNotes,
   archiveNote,
   unarchiveNote,
   addNote,

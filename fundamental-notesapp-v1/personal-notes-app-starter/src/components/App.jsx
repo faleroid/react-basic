@@ -1,19 +1,19 @@
 import React from 'react';
-import NoteList from './NoteList';
+import NoteList from '../pages/NoteList';
 import Header from './Header';
-import SearchButton from './SearchButton';
+import SearchWrapper from './SearchWrapper';
+import SearchBar from './SearchBar';
 import Footer from './Footer';
-import NoteDetailWrapper from '../pages/NoteDetailPage';
+import NoteDetailWrapper from './NoteDetailWrapper';
+import AddNoteWrapper from './AddNoteWrapper';
+import NotFoundPage from '../pages/NotFoundPage';
 import { Routes, Route } from 'react-router-dom';
 import {
   getAllNotes,
   getActiveNotes,
   getArchivedNotes,
   deleteNote,
-  editNote,
-  getNote,
   archiveNote,
-  unarchiveNote,
   addNote
 } from '../utils/local-data';
 
@@ -24,6 +24,15 @@ class App extends React.Component {
       notes: getAllNotes(),
       searchKeyword: '',
     };
+  }
+
+  onAdd = (title, body) => {
+    addNote({ title, body });
+    this.setState(() => {
+      return {
+        notes: getActiveNotes(),
+      };
+    });
   }
 
   onShowActiveNotes = () => {
@@ -42,10 +51,10 @@ class App extends React.Component {
     });
   }
 
-  onSearchHandler = (searchKeyword) => {
+  onSearchHandler = (keyword) => {
     this.setState(() => {
       return {
-        searchKeyword: searchKeyword,
+        searchKeyword: keyword,
       };
     });
   }
@@ -78,14 +87,23 @@ class App extends React.Component {
         <Header showActiveNotes={this.onShowActiveNotes} showArchivedNotes={this.onShowArchivedNotes} />
         <main>
           <Routes>
-            <Route path="/" element=
-              {
-                <>
-                  <SearchButton searchKeyword={this.state.searchKeyword} onSearchHandler={this.onSearchHandler} />
-                  <NoteList notes={filteredNotes} />
-                </>
-              } />
+            <Route path="/" element={
+              <>
+                <h2>Catatan Aktif</h2>
+                <SearchWrapper keywordChange={this.onSearchHandler} />
+                <NoteList notes={filteredNotes} />
+              </>
+            } />
+            <Route path="/archived" element={
+              <>
+                <h2>Catatan Arsip</h2>
+                <SearchWrapper keywordChange={this.onSearchHandler} />
+                <NoteList notes={filteredNotes} />
+              </>
+            } />
             <Route path="/notes/:id" element={<NoteDetailWrapper onDelete={this.onDelete} onArchive={this.onArchive} />} />
+            <Route path="/notes/new" element={<AddNoteWrapper onAdd={this.onAdd} />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />

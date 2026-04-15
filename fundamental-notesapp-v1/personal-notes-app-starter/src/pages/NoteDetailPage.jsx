@@ -1,16 +1,6 @@
 import React from "react";
 import { getNote, getActiveNotes } from "../utils/local-data";
 import NoteDetail from "../components/NoteDetail";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
-function NoteDetailWrapper({ onDelete, onArchive }) {
-    const { id } = useParams();
-    const navigate = useNavigate();
-    return (
-        <NoteDetailPage id={id} navigate={navigate} onDelete={onDelete} onArchive={onArchive} />
-    );
-}
 
 class NoteDetailPage extends React.Component {
     constructor(props) {
@@ -51,4 +41,4 @@ class NoteDetailPage extends React.Component {
     }
 }
 
-export default NoteDetailWrapper;
+export default NoteDetailPage;

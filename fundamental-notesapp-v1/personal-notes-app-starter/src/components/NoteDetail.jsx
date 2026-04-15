@@ -10,10 +10,14 @@ function NoteDetail({ note, onArchive, onDelete }) {
             </div>
             <div className="detail-page__action">
                 <button className="action" onClick={() => onArchive(note.id)}>
-                    {note.archived ? 'Pindahkan' : 'Arsipkan'}
+                    {
+                        note.archived ?
+                            <span className="material-symbols-outlined">unarchive</span> :
+                            <span className="material-symbols-outlined">archive</span>
+                    }
                 </button>
                 <button className="action" onClick={() => onDelete(note.id)}>
-                    Hapus
+                    <span className="material-symbols-outlined">delete_forever</span>
                 </button>
             </div>
         </div>
